@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZWDE360_BP_SO_SRV" xml:lang="en" sap:schema-version="0000"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="BusinessPartner" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BpID"/>
+                </Key>
+                <Property Name="BpID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Bus. Part. ID" sap:creatable="false" sap:sortable="false"/>
+                <Property Name="BpRole" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Bus. Part. Role" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmailAddress" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="E-Mail Address" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Phone No." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FaxNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Phone No." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WebAddress" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanyName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Company Name" sap:sortable="false"/>
+                <Property Name="LegalForm" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Legal Form" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="City" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Postal Code" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Street" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Building" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Building" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Country" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AddressType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Address Type" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AddressValStartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AddressValEndDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Employee ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedBy" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Employee ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedAt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="SalesOrderSet" Relationship="ZWDE360_BP_SO_SRV.BusinessPartner_SalesOrder" FromRole="FromRole_BusinessPartner_SalesOrder" ToRole="ToRole_BusinessPartner_SalesOrder"/>
+                <NavigationProperty Name="ProductSet" Relationship="ZWDE360_BP_SO_SRV.BusinessPartner_Products" FromRole="FromRole_BusinessPartner_Products" ToRole="ToRole_BusinessPartner_Products"/>
+            </EntityType>
+            <EntityType Name="SalesOrder" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SoID"/>
+                </Key>
+                <Property Name="SoID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sa. Ord. ID" sap:creatable="false" sap:sortable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Employee ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedBy" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Employee ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedAt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedByBp" Type="Edm.Boolean" Nullable="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedByBp" Type="Edm.Boolean" Nullable="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Note" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BuyerID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Bus. Part. ID" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BuyerName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Company Name" sap:sortable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="GrossAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Gross Amt." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Net Amt." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Tax Amt." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LifecycleStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="SO Lifecycle" sap:creatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BillingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="SO Confirmation" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DeliveryStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="SO Ordering" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="BusinessPartner" Relationship="ZWDE360_BP_SO_SRV.BusinessPartner_SalesOrder" FromRole="ToRole_BusinessPartner_SalesOrder" ToRole="FromRole_BusinessPartner_SalesOrder"/>
+            </EntityType>
+            <EntityType Name="Product" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProductID"/>
+                </Key>
+                <Property Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Product ID" sap:sortable="false"/>
+                <Property Name="TypeCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Prod. Type Code" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Prod. Cat." sap:sortable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplierID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Bus. Part. ID" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplierName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Company Name" sap:sortable="false"/>
+                <Property Name="TaxTarifCode" Type="Edm.Byte" Nullable="false" sap:label="Prod. Tax Code" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MeasureUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Qty. Unit" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="WeightMeasure" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="WeightUnit" sap:label="Wt. Measure" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WeightUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Qty. Unit" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="23" Scale="4" sap:label="Price" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Width" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="DimUnit" sap:label="Dimensions" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Depth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="DimUnit" sap:label="Dimensions" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Height" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="DimUnit" sap:label="Dimensions" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DimUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Dim. Unit" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="ProductPicUrl" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Pic URL" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="BusinessPartner" Relationship="ZWDE360_BP_SO_SRV.BusinessPartner_Products" FromRole="ToRole_BusinessPartner_Products" ToRole="FromRole_BusinessPartner_Products"/>
+            </EntityType>
+            <Association Name="BusinessPartner_Products" sap:content-version="1">
+                <End Type="ZWDE360_BP_SO_SRV.BusinessPartner" Multiplicity="1" Role="FromRole_BusinessPartner_Products"/>
+                <End Type="ZWDE360_BP_SO_SRV.Product" Multiplicity="*" Role="ToRole_BusinessPartner_Products"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_BusinessPartner_Products">
+                        <PropertyRef Name="BpID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_BusinessPartner_Products">
+                        <PropertyRef Name="SupplierID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartner_SalesOrder" sap:content-version="1">
+                <End Type="ZWDE360_BP_SO_SRV.BusinessPartner" Multiplicity="1" Role="FromRole_BusinessPartner_SalesOrder"/>
+                <End Type="ZWDE360_BP_SO_SRV.SalesOrder" Multiplicity="*" Role="ToRole_BusinessPartner_SalesOrder"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_BusinessPartner_SalesOrder">
+                        <PropertyRef Name="BpID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_BusinessPartner_SalesOrder">
+                        <PropertyRef Name="BuyerID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZWDE360_BP_SO_SRV_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="SalesOrderSet" EntityType="ZWDE360_BP_SO_SRV.SalesOrder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ProductSet" EntityType="ZWDE360_BP_SO_SRV.Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BusinessPartnerSet" EntityType="ZWDE360_BP_SO_SRV.BusinessPartner" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="BusinessPartner_SalesOrderSet" Association="ZWDE360_BP_SO_SRV.BusinessPartner_SalesOrder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="BusinessPartnerSet" Role="FromRole_BusinessPartner_SalesOrder"/>
+                    <End EntitySet="SalesOrderSet" Role="ToRole_BusinessPartner_SalesOrder"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartner_ProductsSet" Association="ZWDE360_BP_SO_SRV.BusinessPartner_Products" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="BusinessPartnerSet" Role="FromRole_BusinessPartner_Products"/>
+                    <End EntitySet="ProductSet" Role="ToRole_BusinessPartner_Products"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://webide-xcc397184.dispatcher.neo.ondemand.com/destinations/DCC_100/sap/opu/odata/sap/ZWDE360_BP_SO_SRV/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="https://webide-xcc397184.dispatcher.neo.ondemand.com/destinations/DCC_100/sap/opu/odata/sap/ZWDE360_BP_SO_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
